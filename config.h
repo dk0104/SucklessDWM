@@ -58,12 +58,12 @@ static const int resizehints = 1;    /* 1 means respect size hints in tiled resi
 
 static const Layout layouts[] = {
 	/* symbol     arrange function */
-	{ "[]=",      tile },    /* first entry is default */
-	{ "><>",      NULL },    /* no layout function means floating behavior */
+	{ "[T]",      tile },    /* first entry is default */
+	{ "[F]",      NULL },    /* no layout function means floating behavior */
 	{ "[M]",      monocle },
 	{ "[D]",      deck },
-	{ "|C|",      centeredmaster },
-	{ ">C>",      centeredfloatingmaster },
+	{ "[C]",      centeredmaster },
+	{ "[>C]",      centeredfloatingmaster },
 };
 
 /* key definitions */
@@ -89,8 +89,8 @@ static Key keys[] = {
 	{ MODKEY,                       XK_b,      togglebar,      {0} },
 	{ MODKEY,                       XK_j,      focusstack,     {.i = +1 } },
 	{ MODKEY,                       XK_k,      focusstack,     {.i = -1 } },
-	{ MODKEY,                       XK_i,      incnmaster,     {.i = +1 } },
-	{ MODKEY,                       XK_d,      incnmaster,     {.i = -1 } },
+	{ MODKEY|ControlMask,           XK_h,      incnmaster,     {.i = +1 } },
+	{ MODKEY|ControlMask,           XK_l,      incnmaster,     {.i = -1 } },
 	{ MODKEY,                       XK_h,      setmfact,       {.f = -0.05} },
 	{ MODKEY,                       XK_l,      setmfact,       {.f = +0.05} },
 	{ MODKEY,                       XK_Return, zoom,           {0} },
@@ -98,10 +98,10 @@ static Key keys[] = {
 	{ MODKEY|ShiftMask,             XK_q,      killclient,     {0} },
 	{ MODKEY,                       XK_t,      setlayout,      {.v = &layouts[0]} },
 	{ MODKEY,                       XK_f,      setlayout,      {.v = &layouts[1]} },
-	{ MODKEY,                       XK_n,      setlayout,      {.v = &layouts[2]} },
-	{ MODKEY,                       XK_m,      setlayout,      {.v = &layouts[3]} },
-	{ MODKEY,                       XK_c,      setlayout,      {.v = &layouts[3]} },
-	{ MODKEY,                       XK_o,      setlayout,      {.v = &layouts[4]} },
+	{ MODKEY,                       XK_m,      setlayout,      {.v = &layouts[2]} },
+	{ MODKEY,                       XK_d,      setlayout,      {.v = &layouts[3]} },
+	{ MODKEY,                       XK_c,      setlayout,      {.v = &layouts[4]} },
+	{ MODKEY,                       XK_s,      setlayout,      {.v = &layouts[5]} },
 	{ MODKEY,                       XK_space,  setlayout,      {0} },
 	{ MODKEY|ShiftMask,             XK_space,  togglefloating, {0} },
 	{ MODKEY,                       XK_0,      view,           {.ui = ~0 } },
@@ -113,9 +113,9 @@ static Key keys[] = {
 	{ MODKEY,                       XK_minus,  setgaps,        {.i = -1 } },
 	{ MODKEY,                       XK_equal,  setgaps,        {.i = +1 } },
 	{ MODKEY|ShiftMask,             XK_equal,  setgaps,        {.i = 0  } },
-	{ MODKEY|ControlMask,		XK_t,  	   togglescratch,  {.ui = 0 } },
-	{ MODKEY|ControlMask,		XK_r,	   togglescratch,  {.ui = 1 } },
-	{ MODKEY|ControlMask,       	XK_c,	   togglescratch,  {.ui = 2 } },
+	{ MODKEY|ControlMask,		XK_bracketright,  	   togglescratch,  {.ui = 0 } },
+	{ MODKEY|ControlMask,		XK_bracketleft,	           togglescratch,  {.ui = 1 } },
+	{ MODKEY|ControlMask,       	XK_p,	                   togglescratch,  {.ui = 2 } },
 	TAGKEYS(                        XK_1,                      0)
 	TAGKEYS(                        XK_2,                      1)
 	TAGKEYS(                        XK_3,                      2)
