@@ -11,7 +11,7 @@ static const int showsystray        = 1;     /* 0 means no systray */
 static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
 static const char *fonts[] = { "Wuncon Siji", "Mononoki Nerd Font:size=9:antialias=true:autohint=true" };
-static const char dmenufont[]       = "Hack:size=10";
+static const char dmenufont[]       = "Mononoki Nerd Font:size=9";
 static const char col_gray1[]       = "#222222";
 static const char col_gray2[]       = "#444444";
 static const char col_gray3[]       = "#bbbbbb";
@@ -29,12 +29,12 @@ typedef struct {
 } Sp;
 const char *spcmd1[] = {"st", "-n", "spterm", "-g", "120x34", NULL };
 const char *spcmd2[] = {"st", "-n", "spfm", "-g", "144x41", "-e", "ranger", NULL };
-const char *spcmd3[] = {"keepassxc", NULL };
+const char *spcmd3[] = {"rocketchat-desktop", NULL };
 static Sp scratchpads[] = {
 	/* name          cmd  */
 	{"spterm",      spcmd1},
 	{"spranger",    spcmd2},
-	{"keepassxc",   spcmd3},
+	{"srocket",     spcmd3},
 };
 /* tagging */
 static const char *tags[] = { "1", "2", "3", "4", "5", "6", "7", "8", "9" };
@@ -48,7 +48,7 @@ static const Rule rules[] = {
 	{ "Firefox",  NULL,       NULL,       1 << 8,       0,           -1 },
 	{ NULL,		  "spterm",		NULL,		SPTAG(0),		1,			 -1 },
 	{ NULL,		  "spfm",		NULL,		SPTAG(1),		1,			 -1 },
-	{ NULL,		  "keepassxc",	NULL,		SPTAG(2),		0,			 -1 },
+	{ NULL,		  "srocket",	        NULL,		SPTAG(2),		1,			 -1 },
 };
 
 /* layout(s) */
@@ -113,9 +113,9 @@ static Key keys[] = {
 	{ MODKEY,                       XK_minus,  setgaps,        {.i = -1 } },
 	{ MODKEY,                       XK_equal,  setgaps,        {.i = +1 } },
 	{ MODKEY|ShiftMask,             XK_equal,  setgaps,        {.i = 0  } },
-	{ MODKEY,     			XK_y,  	   togglescratch,  {.ui = 0 } },
-	{ MODKEY,      			XK_u,	   togglescratch,  {.ui = 1 } },
-	{ MODKEY,      			XK_x,	   togglescratch,  {.ui = 2 } },
+	{ MODKEY|ControlMask,		XK_t,  	   togglescratch,  {.ui = 0 } },
+	{ MODKEY|ControlMask,		XK_r,	   togglescratch,  {.ui = 1 } },
+	{ MODKEY|ControlMask,       	XK_c,	   togglescratch,  {.ui = 2 } },
 	TAGKEYS(                        XK_1,                      0)
 	TAGKEYS(                        XK_2,                      1)
 	TAGKEYS(                        XK_3,                      2)
