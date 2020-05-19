@@ -19,13 +19,13 @@ static const char col_gray4[]       = "#4C466a";
 static const char col_cyan[]        = "#81A1C1";
 static const char *colors[][3]      = {
 	/*               fg         bg         border   */
-	[SchemeNorm] = { col_gray3, col_gray1, col_gray2 },
-	[SchemeSel]  = { col_gray4, col_cyan,  col_cyan  },
-	[SchemeStatus]  = { col_gray3, col_gray1,  "#000000"  }, // Statusbar right {text,background,not used but cannot be empty}
-	[SchemeTagsSel]  = { col_gray4, col_cyan,  "#000000"  }, // Tagbar left selected {text,background,not used but cannot be empty}
-    [SchemeTagsNorm]  = { col_gray3, col_gray1,  "#000000"  }, // Tagbar left unselected {text,background,not used but cannot be empty}
-    [SchemeInfoSel]  = { col_gray4, col_cyan,  "#000000"  }, // infobar middle  selected {text,background,not used but cannot be empty}
-    [SchemeInfoNorm]  = { col_gray3, col_gray1,  "#000000"  }, // infobar middle  unselected {text,background,not used but cannot be empty}
+	[SchemeNorm]        = { col_gray3, col_gray1, col_gray2 },
+	[SchemeSel]         = { col_gray4, col_cyan,  col_cyan  },
+	[SchemeStatus]      = { col_gray3, col_gray1,  "#000000"  }, // Statusbar right {text,background,not used but cannot be empty}
+	[SchemeTagsSel]     = { col_gray4, col_cyan,  "#000000"  }, // Tagbar left selected {text,background,not used but cannot be empty}
+        [SchemeTagsNorm]    = { col_gray3, col_gray1,  "#000000"  }, // Tagbar left unselected {text,background,not used but cannot be empty}
+        [SchemeInfoSel]     = { col_gray4, col_cyan,  "#000000"  }, // infobar middle  selected {text,background,not used but cannot be empty}
+        [SchemeInfoNorm]    = { col_gray3, col_gray1,  "#000000"  }, // infobar middle  unselected {text,background,not used but cannot be empty}
 };
 
 typedef struct {
@@ -87,6 +87,8 @@ static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() 
 static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_cyan, "-sf", col_gray4, NULL };
 static const char *termcmd[]  = { "st", NULL };
 static const char *lockcmd[] = {"betterlockscreen","-l",NULL};
+static const char *switchMonSettings[] = {"dmenu_monitor",NULL};
+static const char *shutdowm[] = {"dmenu_shutdown",NULL};
 
 static Key keys[] = {
 	/* modifier                     key        function        argument */
@@ -123,6 +125,8 @@ static Key keys[] = {
 	{ MODKEY|ControlMask,		XK_bracketleft,	           togglescratch,  {.ui = 1 } },
 	{ MODKEY|ControlMask,       	XK_p,	                   togglescratch,  {.ui = 2 } },
         { MODKEY,                       XK_Escape, spawn,          {.v = lockcmd } },
+        { MODKEY|Mod1Mask,              XK_0,      spawn,          {.v = switchMonSettings } },
+        { MODKEY|Mod1Mask,              XK_minus,  spawn,          {.v = shutdowm } },
 	TAGKEYS(                        XK_1,                      0)
 	TAGKEYS(                        XK_2,                      1)
 	TAGKEYS(                        XK_3,                      2)
