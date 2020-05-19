@@ -10,7 +10,7 @@ static const int systraypinningfailfirst = 1;   /* 1: if pinning fails, display 
 static const int showsystray        = 1;     /* 0 means no systray */
 static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
-static const char *fonts[] = { "Wuncon Siji", "Mononoki Nerd Font:size=9:antialias=true:autohint=true" };
+static const char *fonts[] = { "Wuncon Siji", "Source Code Pro:size=9:antialias=true:autohint=true" };
 static const char dmenufont[]       = "Source Code Pro:size=13";
 static const char col_gray1[]       = "#2E3440";
 static const char col_gray2[]       = "#3B4252";
@@ -84,10 +84,9 @@ static const Layout layouts[] = {
 
 /* commands */
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
-static const char *dmenucmd[] = { "dmenu_run_history", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_cyan, "-sf", col_gray4, NULL };
+static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_cyan, "-sf", col_gray4, NULL };
 static const char *termcmd[]  = { "st", NULL };
 static const char *lockcmd[] = {"betterlockscreen","-l",NULL};
-static const char *switchMonSettings[] = {"dmenu_monitor",NULL};
 static const char *shutdowm[] = {"dmenu_shutdown",NULL};
 
 static Key keys[] = {
@@ -125,7 +124,6 @@ static Key keys[] = {
 	{ MODKEY|ControlMask,		XK_bracketleft,	           togglescratch,  {.ui = 1 } },
 	{ MODKEY|ControlMask,       	XK_p,	                   togglescratch,  {.ui = 2 } },
         { MODKEY,                       XK_Escape, spawn,          {.v = lockcmd } },
-        { MODKEY|Mod1Mask,              XK_0,      spawn,          {.v = switchMonSettings } },
         { MODKEY|Mod1Mask,              XK_minus,  spawn,          {.v = shutdowm } },
 	TAGKEYS(                        XK_1,                      0)
 	TAGKEYS(                        XK_2,                      1)
