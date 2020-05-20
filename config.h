@@ -1,7 +1,7 @@
 /* See LICENSE file for copyright and license details. */
 
 /* appearance */
-static const unsigned int borderpx  = 3;        /* border pixel of windows */
+static const unsigned int borderpx  = 1;        /* border pixel of windows */
 static const unsigned int gappx     = 3;        /* gaps between windows */
 static const unsigned int snap      = 32;       /* snap pixel */
 static const unsigned int systraypinning = 0;   /* 0: sloppy systray follows selected monitor, >0: pin systray to monitor X */
@@ -12,20 +12,21 @@ static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
 static const char *fonts[] = { "Wuncon Siji", "Mononoki Nerd Font:size=9:antialias=true:autohint=true" };
 static const char dmenufont[]       = "Source Code Pro:size=13";
-static const char col_gray1[]       = "#2E3440";
-static const char col_gray2[]       = "#3B4252";
-static const char col_gray3[]       = "#D8DEE9";
-static const char col_gray4[]       = "#4C466a";
-static const char col_cyan[]        = "#88C0D0";
+static const char col_night1[]      = "#2E3440";
+static const char col_night2[]      = "#3B4252";
+static const char col_night4[]      = "#4C566a";
+static const char col_snow1[]       = "#D8DEE9";
+static const char col_frost3[]      = "#88C0D0";
+static const char col_frost4[]      = "#5E81AC";
 static const char *colors[][3]      = {
 	/*               fg         bg         border   */
-	[SchemeNorm]        = { col_gray3, col_gray1, col_gray2 },
-	[SchemeSel]         = { col_gray4, col_cyan,  col_cyan  },
-	[SchemeStatus]      = { col_gray3, col_gray1,  "#000000"  }, // Statusbar right {text,background,not used but cannot be empty}
-	[SchemeTagsSel]     = { col_gray4, col_cyan,  "#000000"  }, // Tagbar left selected {text,background,not used but cannot be empty}
-        [SchemeTagsNorm]    = { col_gray3, col_gray1,  "#000000"  }, // Tagbar left unselected {text,background,not used but cannot be empty}
-        [SchemeInfoSel]     = { col_gray4, col_cyan,  "#000000"  }, // infobar middle  selected {text,background,not used but cannot be empty}
-        [SchemeInfoNorm]    = { col_gray3, col_gray1,  "#000000"  }, // infobar middle  unselected {text,background,not used but cannot be empty}
+	[SchemeNorm]        = { col_snow1, col_night1, col_night2 },
+	[SchemeSel]         = { col_night2, col_frost4,  col_frost3  },
+	[SchemeStatus]      = { col_snow1, col_night1,  "#000000"  }, // Statusbar right {text,background,not used but cannot be empty}
+	[SchemeTagsSel]     = { col_night2, col_frost3,  "#000000"  }, // Tagbar left selected {text,background,not used but cannot be empty}
+        [SchemeTagsNorm]    = { col_snow1, col_night1,  "#000000"  }, // Tagbar left unselected {text,background,not used but cannot be empty}
+        [SchemeInfoSel]     = { col_night2, col_frost3,  "#000000"  }, // infobar middle  selected {text,background,not used but cannot be empty}
+        [SchemeInfoNorm]    = { col_snow1, col_night1,  "#000000"  }, // infobar middle  unselected {text,background,not used but cannot be empty}
 };
 
 typedef struct {
@@ -84,7 +85,7 @@ static const Layout layouts[] = {
 
 /* commands */
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
-static const char *dmenucmd[] = { "dmenu_run_history", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_cyan, "-sf", col_gray4, NULL };
+static const char *dmenucmd[] = { "dmenu_run_history", "-m", dmenumon, "-fn", dmenufont, "-nb", col_night1, "-nf", col_snow1, "-sb", col_frost3, "-sf", col_night1, NULL };
 static const char *termcmd[]  = { "termite", NULL };
 static const char *lockcmd[] = {"betterlockscreen","-l",NULL};
 static const char *switchMonSettings[] = {"dmenu_monitor",NULL};
