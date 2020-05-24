@@ -46,7 +46,6 @@ static Sp scratchpads[] = {
 };
 /* tagging */
 static const char *tags[] = { "1", "2", "3", "4", "5", "6", "7", "8", "9" };
-//static const char *tags[] = { "●", "●", "●", "●", "●", "●", "●", "●" };
 static const Rule rules[] = {
 	/* xprop(1):
 	 *	WM_CLASS(STRING) = instance, class
@@ -101,6 +100,8 @@ static Key keys[] = {
 	{ MODKEY,                       XK_b,      togglebar,      {0} },
 	{ MODKEY,                       XK_j,      focusstack,     {.i = +1 } },
 	{ MODKEY,                       XK_k,      focusstack,     {.i = -1 } },
+	{ MODKEY|ShiftMask,             XK_j,      pushdown,       {.i = +1 } },
+	{ MODKEY|ShiftMask,             XK_k,      pushup,         {.i = -1 } },
 	{ MODKEY|ControlMask,           XK_h,      incnmaster,     {.i = +1 } },
 	{ MODKEY|ControlMask,           XK_l,      incnmaster,     {.i = -1 } },
 	{ MODKEY,                       XK_h,      setmfact,       {.f = -0.05} },
