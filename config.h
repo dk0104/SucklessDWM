@@ -19,22 +19,22 @@ static const char col_snow1[]       = "#D8DEE9";
 static const char col_frost3[]      = "#88C0D0";
 static const char col_frost4[]      = "#5E81AC";
 static const char *colors[][3]      = {
-	/*               fg         bg         border   */
-	[SchemeNorm]        = { col_snow1, col_night1, col_night2 },
-	[SchemeSel]         = { col_night2, col_frost4,  col_frost3  },
-	[SchemeStatus]      = { col_snow1, col_night1,  "#000000"  }, // Statusbar right {text,background,not used but cannot be empty}
+	/*                         fg         bg          border   */
+	[SchemeNorm]        = { col_snow1,  col_night1,  col_night2 },
+	[SchemeSel]         = { col_night2, col_frost4,  col_frost3 },
+	[SchemeStatus]      = { col_snow1,  col_night1,  "#000000"  }, // Statusbar right {text,background,not used but cannot be empty}
 	[SchemeTagsSel]     = { col_night2, col_frost3,  "#000000"  }, // Tagbar left selected {text,background,not used but cannot be empty}
-        [SchemeTagsNorm]    = { col_snow1, col_night1,  "#000000"  }, // Tagbar left unselected {text,background,not used but cannot be empty}
+        [SchemeTagsNorm]    = { col_snow1,  col_night1,  "#000000"  }, // Tagbar left unselected {text,background,not used but cannot be empty}
         [SchemeInfoSel]     = { col_night2, col_frost3,  "#000000"  }, // infobar middle  selected {text,background,not used but cannot be empty}
-        [SchemeInfoNorm]    = { col_snow1, col_night1,  "#000000"  }, // infobar middle  unselected {text,background,not used but cannot be empty}
+        [SchemeInfoNorm]    = { col_snow1,  col_night1,  "#000000"  }, // infobar middle  unselected {text,background,not used but cannot be empty}
 };
 
 typedef struct {
 	const char *name;
 	const void *cmd;
 } Sp;
-//const char *spcmd1[] = {"st", "-n", "spterm", "-g", "144x41", NULL };
-const char *spcmd1[] = {"kitty", "--name", "spterm", "-session", "~/.config/kitty/sessions/sp", NULL };
+const char *spcmd1[] = {"st", "-n", "spterm", "-g", "144x41", NULL };
+//const char *spcmd1[] = {"kitty", "--name", "spterm", "-session", "~/.config/kitty/sessions/sp", NULL };
 
 const char *spcmd2[] = {"st", "-n", "spfm", "-g", "144x41", "-e", "ranger", NULL };
 const char *spcmd3[] = {"rocketchat-desktop", NULL };
