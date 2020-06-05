@@ -1,5 +1,7 @@
 /* See LICENSE file for copyright and license details. */
 
+#include "fibonacci.c"
+
 /* appearance */
 static const unsigned int borderpx  = 2;        /* border pixel of windows */
 static const unsigned int gappx     = 3;        /* gaps between windows */
@@ -66,7 +68,9 @@ static const Layout layouts[] = {
 	{ "[M]",      monocle },
 	{ "[D]",      deck },
 	{ "[C]",      centeredmaster },
-	{ "[>C]",      centeredfloatingmaster },
+	{ "[>C]",     centeredfloatingmaster },
+ 	{ "[@]",      spiral },
+ 	{ "[\\]",     dwindle },
 };
 
 /* key definitions */
@@ -104,12 +108,14 @@ static Key keys[] = {
 	{ MODKEY,                       XK_Return,             zoom,           {0} },
 	{ MODKEY,                       XK_Tab,                view,           {0} },
 	{ MODKEY|ShiftMask,             XK_q,                  killclient,     {0} },
-	{ MODKEY,                       XK_t,                  setlayout,      {.v = &layouts[0]} },
-	{ MODKEY,                       XK_f,                  setlayout,      {.v = &layouts[1]} },
-	{ MODKEY,                       XK_m,                  setlayout,      {.v = &layouts[2]} },
-	{ MODKEY,                       XK_d,                  setlayout,      {.v = &layouts[3]} },
-	{ MODKEY,                       XK_c,                  setlayout,      {.v = &layouts[4]} },
-	{ MODKEY,                       XK_s,                  setlayout,      {.v = &layouts[5]} },
+	{ MODKEY,                       XK_t,                  setlayout,      {.v = &layouts[0]} },//"[T]"
+	{ MODKEY,                       XK_f,                  setlayout,      {.v = &layouts[1]} },//"[F]"
+	{ MODKEY,                       XK_m,                  setlayout,      {.v = &layouts[2]} },//"[M]"
+	{ MODKEY,                       XK_d,                  setlayout,      {.v = &layouts[3]} },//"[D]"
+	{ MODKEY,                       XK_c,                  setlayout,      {.v = &layouts[4]} },//"[C]"
+	{ MODKEY,                       XK_s,                  setlayout,      {.v = &layouts[5]} },//"[>C]
+	{ MODKEY,                       XK_x,                  setlayout,      {.v = &layouts[6]} },//"[@]"
+	{ MODKEY,                       XK_z,                  setlayout,      {.v = &layouts[7]} },//"[\\]
 	{ MODKEY,                       XK_space,              setlayout,      {0} },
 	{ MODKEY|ShiftMask,             XK_space,              togglefloating, {0} },
 	{ MODKEY,                       XK_0,                  view,           {.ui = ~0 } },
