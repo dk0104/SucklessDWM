@@ -19,16 +19,17 @@ static const char col_night1[]      = "#2E3440";
 static const char col_night2[]      = "#3B4252";
 static const char col_night4[]      = "#4C566a";
 static const char col_snow1[]       = "#D8DEE9";
+static const char col_frost2[]      = "#81A1C1";
 static const char col_frost3[]      = "#88C0D0";
 static const char col_frost4[]      = "#5E81AC";
 static const char *colors[][3]      = {
 	/*                         fg         bg          border   */
 	[SchemeNorm]        = { col_snow1,  col_night1,  col_night2 },
-	[SchemeSel]         = { col_night2, col_frost4,  col_frost3 },
+	[SchemeSel]         = { col_night2, col_frost4,  col_frost2 },
 	[SchemeStatus]      = { col_snow1,  col_night1,  "#000000"  }, // Statusbar right {text,background,not used but cannot be empty}
-	[SchemeTagsSel]     = { col_night2, col_frost3,  "#000000"  }, // Tagbar left selected {text,background,not used but cannot be empty}
+	[SchemeTagsSel]     = { col_night2, col_frost2,  "#000000"  }, // Tagbar left selected {text,background,not used but cannot be empty}
         [SchemeTagsNorm]    = { col_snow1,  col_night1,  "#000000"  }, // Tagbar left unselected {text,background,not used but cannot be empty}
-        [SchemeInfoSel]     = { col_night2, col_frost3,  "#000000"  }, // infobar middle  selected {text,background,not used but cannot be empty}
+        [SchemeInfoSel]     = { col_night2, col_frost2,  "#000000"  }, // infobar middle  selected {text,background,not used but cannot be empty}
         [SchemeInfoNorm]    = { col_snow1,  col_night1,  "#000000"  }, // infobar middle  unselected {text,background,not used but cannot be empty}
 };
 
